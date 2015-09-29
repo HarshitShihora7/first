@@ -2,8 +2,8 @@
 
 $mysql_host = "50.62.209.152:3306"; 
 $mysql_database = "classifieds"; 
-$mysql_user = "prashant"; 
-$mysql_password = "_737Ngsv"; 
+$mysql_user = ""; 
+$mysql_password = ""; 
 
 $test=isset($_POST['test'])?$_POST['test']:'No testing string received';
 
