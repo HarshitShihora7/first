@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Plagiarism Checker | Viper - Free Plagiarism Checker and Scanner Software</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="http://feeds.feedburner.com/ViperScanner" rel="alternate" type="application/rss+xml" title="ScanMyEssay RSS. News &amp; Updates"/>
+        <link href="http://www.scanmyessay.com/css/main.css" rel="stylesheet" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+        <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="http://www.scanmyessay.com/favicon.ico"/>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#exp-content").hide();
+                $("#s1").click(function () {
+                    $("#exp-content").fadeIn("slow"); //fadeIn
+                    $("#s1").hide();
+                });
+                $("#h1").click(function () {
+                    $("#exp-content").hide("slow");
+                    $("#s1").show();
+                });
+            });
+            
+        </script>
+
+        <style type="text/css">
+        	
+        	#plg-notes {
+        		margin: 15px 0;
+        	}
+        .no-underline {
+        	text-decoration:none;
+        }
+        .matched-text 
+        {
+        	text-decoration:none;
+        	background-color: #fff86a /*#febbbb*/; 	
+        }
+        #document-text a {
+        	color: #000;
+        }
+        #document-text a:hover {
+        	color: #000;
+        }        
+        .divcenter {
+        	margin: 5px 0;
+        	padding-left: 1px;
+        }
+        .coner-radius 
+        {
+        	-moz-border-radius:3px;
+        	-webkit-border-radius:3px;
+        }
+        #h1 {
+        	display: block;
+        	text-align: right;
+        }
+        
+        #main 
+        {
+        	padding: 5px 5px 20px 5px;       	
+        }
+        #menu ul li h2 
+        {
+           	margin: 5px 5px;
+           	color: #ccc;
+        }
+          
+        	.main-container-top{
+        	
+        		border: 1px solid #fcefa1; /*need removing this*/
+        		background: #fbf9ee;
+        		width: auto;
+        		height: auto;
+        		margin-right: 0;
+        		margin-top: 40px;
+        		float: none;
+        	}
+            .main-container-mid {
+        	    border: 1px solid #aaa; /*need removing this*/
+            	width: auto;
+            	height:auto;
+            	margin: 5px 0;
+            }
+            .main-container-bottom {
+            	border: 1px solid #aaa; /*need removing this*/
+            	width: auto;
+            	height:auto;
+            	margin: 2px 0;	
+            }
+            
+        	.ie-h1-fix {
+        		margin-top: 0px;
+        		padding-bottom: 3px;
+        	}
+        	
+        	.red-text {
+        		color: #c40028;
+        	}
+        	
+        	#rounded-corner
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 9px;
+	margin: 1px;
+	text-align: left;
+	border-collapse: collapse;
+	
+}
+
+#rounded-corner tbody 
+{
+	width: inherit;
+	height: 300px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+#rounded-corner thead th.rounded-location
+{
+	/* background: #ccc;  #b9c9fe;*/
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+    width: 40%;
+   /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(50%,rgba(132,132,132,1)), color-stop(50%,rgba(132,132,132,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+  /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,239,239,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(52%,rgba(209,209,209,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+}
+#rounded-corner thead th.rounded-doc-title
+{
+    width: 30%;
+}
+#rounded-corner thead th.rounded-plg-wrd-count
+{
+}
+#rounded-corner thead th.rounded-mst-plg-pecnt
+{
+}
+#rounded-corner thead th.rounded-unq-wrds-mtch
+{
+}
+#rounded-corner thead th.rounded-unq-mtch-pecnt
+{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,239,239,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(52%,rgba(209,209,209,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+	/*background: #ccc;*/
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius: 3px;
+}
+#rounded-corner th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #555;
+	/*background: #ccc;*/
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,239,239,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(52%,rgba(209,209,209,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+}
+#rounded-corner td
+{
+	padding: 8px;
+	background: #f9f9f9;
+	border-top: 1px solid #fff;
+	color: #555;
+	height: auto;
+}
+
+#rounded-corner tfoot td.rounded-foot-left
+{
+	/*background: #ccc;*/
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,242,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(226,226,226,1))); /* Chrome,Safari4+ */
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+	background: #ccc;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,242,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(226,226,226,1))); /* Chrome,Safari4+ */
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+}
+#rounded-corner tbody tr:hover td
+{
+	background: #dadada;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(241,241,241,1)), color-stop(51%,rgba(225,225,225,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(235,241,246,1)), color-stop(50%,rgba(171,211,238,1)), color-stop(51%,rgba(137,195,235,1)), color-stop(100%,rgba(213,235,251,1))); /* Chrome,Safari4+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(244,250,249,1)), color-stop(51%,rgba(231,245,243,1)), color-stop(100%,rgba(248,252,251,1))); /* Chrome,Safari4+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(234,255,229,1)), color-stop(51%,rgba(209,255,199,1)), color-stop(100%,rgba(240,255,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(255,238,229,1)), color-stop(51%,rgba(255,219,199,1)), color-stop(100%,rgba(255,243,237,1))); /* Chrome,Safari4+ */
+}
+        </style>
+       
+    </head>
+    <body>
+        <div id="wrap">
+            
+            <div id="top">
+                <div id="top-left-tr">
+                    <a href="http://www.scanmyessay.com" title="ScanMyEssay">
+                        <span>Plagiarism Checker</span>
+                    </a> 
+                </div>
+
+                <div id="top-tr">
+                    <a href="http://www.scanmyessay.com/feedback/index.php" title="Contact us">Contact us</a>
+                    | 
+                    <a href="http://www.scanmyessay.com/universities.php">Universities</a>
+                    |
+                    <a href="http://www.scanmyessay.com/viper-background.php">History</a>
+                    |
+                    <a href="http://www.scanmyessay.com/testimonies.php">Testimonies</a>
+                    |
+                    <a href="http://www.scanmyessay.com/press/index.php" title="Viper Press">Press</a>
+                    |
+                    <a href="http://www.scanmyessay.com/about-us.php" title="About us">About us</a>
+                    |
+                    <a href="http://www.scanmyessay.com/sitemap.php" title="Sitemap">Sitemap</a>
+                    |
+                    <a href="http://www.scanmyessay.com/help/index.php" title="Help">Help</a>
+                    |
+                    <a href="http://www.ukessays.com/essay-help.php" title="Essay help" target="_blank">Essay help</a>
+                    |
+                    <a href="http://www.scanmyessay.com/rss/index.php" title="RSS">RSS</a>
+                    |
+                    <a href="http://www.scanmyessay.com/login/index.php" title="Log in">Log in</a>
+                </div>    
+            </div>
+               
+            <div id="menu">
+                <ul>
+                    <li>
+                        <h2>Plagiarism Report For 'Report.docx'</h2>
+                    </li>
+                </ul> 
+            </div>
+
+            <div id="main">
+                <div class="main-container-top coner-radius">
+                    <h1 class="red-text ie-h1-fix">
+                        How does Viper work.....?
+                    </h1>
+                    <a id="s1" class="no-underline" href="#">[+] Read more..</a>
+					<div id="exp-content">
+                        Viper scans your work against over 10 billion web pages and work previously 
+                        submitted to our firm. Once the scan is completed, the report delivers content 
+                        that may match these other sources, including links to the sites that contain 
+                        the same content.
+                        <br />
+                        <br />
+                        <b class="red-text">What Do the Results Mean?</b><br />
+                        If the report sends back positive matches to content found elsewhere, there is no need to panic and assume you have plagiarised your work. Instead, review the report carefully and consider the following:
+                       
+                        <ul>
+                        <li>
+                        Is the material an entire quote, a sentence, or a fragment of 4-5 words often found together? Viper will show a match where there is a string of five or more 
+                        words that are the same as your work. Even if this is not actually plagiarism, it is important that Viper does not ignore these fragments as they draw your 
+                        attention to any sentences where the writer has &#39;rephrased&#39; parts of the 
+                        original material without referencing the source.
+                        </li> 
+                            
+                        <li>If it was intended to be a quote that you were going to attribute to the source, 
+                            did you remember to properly reference it? Sometimes, Viper will identify 
+                            matching material that is available on websites, but the reference might have 
+                            been found within another source. Just because the work has content that matches 
+                            a particular website does not mean that every possible source where it appears 
+                            has to be referenced. Just make sure that at least one reference covers that 
+                        content.
+						</li>
+                        <li>Did you actually use a footnote and it was just simply not picked up by Viper? 
+                            This review is just a means of double-checking that all references have been 
+                            included.
+						</li>
+                        <li>Could Viper have just picked up a phrase that you used more than once in your 
+                            document? This may be a way to ensure that your writing is tight rather than 
+                            repetitive or relies on overly used phrases.
+						</li>    
+                        <li>Did you use too many direct quotes? Viper checks for direct quotes and delivers 
+                            an overall percentage of words it views as direct quotes. Clearly, this should 
+                            not be too high as work that relies too heavily on other material is not 
+                            &#39;original&#39;.
+						</li>
+                        </ul>
+                            <b class="red-text">A Guide on Viper Results</b>
+                            <br/>This guide explains how Viper can identify matching content when it scans your work:
+                            <br/>
+                            <br/><b class="red-text">Overall plagiarism rating 6% or less : </b>
+                            <br/>The results are that it is highly unlikely that this document contains plagiarised material. A careful check will only be necessary if this is a lengthy document. For example, a 6% result within a 15,000 word essay would be of concern because it could mean that direct quotes are too lengthy or there are too many places where a reference was not listed.<br/>
+                            <br/><b class="red-text">Overall plagiarism rating 6% - 12% : </b>
+                            <br/>The results are that there is a low risk that the document contains any plagiarised material. Most of the matching content will probably be fragments. Review your report for any sections that may not have been referenced properly.<br/>
+                            <br/><b class="red-text">Overall plagiarism rating 13% - 20% : </b>
+                            <br/>The results are that there is a medium risk that the document contains any plagiarised material. There may be sections that match websites so it is important to check that proper credit was attributed to the other sources. The scan may not have detected quotation marks or footnotes that were used. For example, if an opening quotation mark was included but there was not a closing quotation mark, then this could explain the higher result. <br/>
+                            <br/><b class="red-text">Overall plagiarism rating 21%+ : </b>
+                            <br/>The results are that there is a high risk that the document contains plagiarised material. If the overall rating is this high, you need to check your report very carefully. It may be that there are a lot of matching fragments and the software has not identified all direct quotes , but it is critical that you go through the entire document and address every phrase or fragment that the scan has flagged to reduce this percentage.<br/>
+                            <a id="h1" class="no-underline" href="#">[-] hide</a>
+                        
+                    </div>
+                </div>
+                <div class="main-container-mid coner-radius">
+                    <table id="rounded-corner" summary="URL found to be copied">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="rounded-location">Location</th>
+                                <th scope="col" class="rounded-doc-title">Title</th>
+                                <th scope="col" class="rounded-plg-wrd-count">Words Matched</th>
+                                <th scope="col" class="rounded-mst-plg-pecnt">Match (%)</th>
+                                <th scope="col" class="rounded-unq-wrds-mtch">Unique Words Matched</th>
+                                <th scope="col" class="rounded-unq-mtch-pecnt">Unique Match (%)</th>
+                            </tr>
+                        </thead>    
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="rounded-foot-left"><em>Documents found to be plagiarised</em></td>
+                                <td class="rounded-foot-right">&nbsp;</td>
+                            </tr>
+                        </tfoot>
+                        <tbody id="ajaxtable">
+                            <tr><td><a href=http://www.google.com/patents/US2962324 target="_blank">http://www.google.com/patents/US2962324</a></td><td>Patent US2962324 - Floating brake drum - Google Patents</td><td>298</td><td>9</td><td>298</td><td>9</td></tr><tr><td><a href=http://www.freepatentsonline.com/5390769.html target="_blank">http://www.freepatentsonline.com/5390769.html</a></td><td>Drum brake spring clip with squealer band retainer - Eaton ...</td><td>188</td><td>6</td><td>180</td><td>6</td></tr><tr><td><a href=http://www.freepatentsonline.com/5383538.html target="_blank">http://www.freepatentsonline.com/5383538.html</a></td><td>Brake squeal spring clip dampener - Eaton Corporation</td><td>147</td><td>5</td><td>0</td><td><1</td></tr><tr><td><a href=https://www.fillingstation.com/articles/brakelockingproblems.htm target="_blank">https://www.fillingstation.com/articles/brakelockingproblems.htm</a></td><td>Mechanical Brake Locking Problems - The Filling Station</td><td>194</td><td>6</td><td>194</td><td>6</td></tr><tr><td><a href=http://www.freepatentsonline.com/5553691.html target="_blank">http://www.freepatentsonline.com/5553691.html</a></td><td>Mechanically actuated drum brake - AlliedSignal Europe ...</td><td>73</td><td>2</td><td>73</td><td>2</td></tr><tr><td><a href=http://www.freepatentsonline.com/5590747.html target="_blank">http://www.freepatentsonline.com/5590747.html</a></td><td>Force transmission device slideably mounted to drum brake ...</td><td>31</td><td>1</td><td>0</td><td><1</td></tr><tr><td><a href=http://www.patents.com/us-5383539.html target="_blank">http://www.patents.com/us-5383539.html</a></td><td>US Patent # 5,383,539. Brake squeal dampener ring - Patents.com</td><td>85</td><td>3</td><td>0</td><td><1</td></tr><tr><td><a href=http://en.wikipedia.org/wiki/Brake_drum target="_blank">http://en.wikipedia.org/wiki/Brake_drum</a></td><td>Drum brake - Wikipedia, the free encyclopedia</td><td>179</td><td>6</td><td>179</td><td>6</td></tr><tr><td><a href=http://www.youtube.com/watch?v=Gnfqr3dKirU target="_blank">http://www.youtube.com/watch?v=Gnfqr3dKirU</a></td><td>How Car Brakes Work: "What Stops Them" 1935 Chevrolet ...</td><td>180</td><td>6</td><td>1</td><td><1</td></tr><tr><td><a href=http://en.wikipedia.org/wiki/Brake_master_cylinder target="_blank">http://en.wikipedia.org/wiki/Brake_master_cylinder</a></td><td>Master cylinder - Wikipedia, the free encyclopedia</td><td>26</td><td>1</td><td>26</td><td>1</td></tr><tr><td><a href=http://www.freepatentsonline.com/5383539.html target="_blank">http://www.freepatentsonline.com/5383539.html</a></td><td>Brake squeal dampener ring - Eaton Corporation</td><td>85</td><td>3</td><td>0</td><td><1</td></tr><tr><td><a href=http://en.wikipedia.org/wiki/Drum_brake target="_blank">http://en.wikipedia.org/wiki/Drum_brake</a></td><td>Drum brake - Wikipedia, the free encyclopedia</td><td>179</td><td>6</td><td>0</td><td><1</td></tr><tr><td><a href=http://sbparts.net/index.php?route=product/category&path=65 target="_blank">http://sbparts.net/index.php?route=product/category&path=65</a></td><td>CYLINDERS - SB Parts</td><td>26</td><td>1</td><td>0</td><td><1</td></tr><tr><td><a href=http://tiredeals.com/brakes.html target="_blank">http://tiredeals.com/brakes.html</a></td><td>Brakes, Drum Brakes, Auto Repairs - F&amp;F Tire World</td><td>44</td><td>1</td><td>0</td><td><1</td></tr><tr><td><a href=http://www.slideshare.net/nagendrakushwaha007/chp-25 target="_blank">http://www.slideshare.net/nagendrakushwaha007/chp-25</a></td><td>Chp 25 - SlideShare</td><td>78</td><td>2</td><td>78</td><td>2</td></tr><tr><td><a href=http://www.safim.it/en/products/master-cylinders.html target="_blank">http://www.safim.it/en/products/master-cylinders.html</a></td><td>Master cylinders - SAFIM Spa - Hydraulic brake system</td><td>26</td><td>1</td><td>0</td><td><1</td></tr><tr><td><a href=http://www.studymode.com/essays/Drum-Brake-63407845.html target="_blank">http://www.studymode.com/essays/Drum-Brake-63407845.html</a></td><td>Drum Brake - Term Paper - 426 Words - StudyMode</td><td>180</td><td>6</td><td>0</td><td><1</td></tr><tr><td><a href=http://www.youtube.com/watch?v=c9-g2pTrH_U target="_blank">http://www.youtube.com/watch?v=c9-g2pTrH_U</a></td><td>Car Brakes: "Hydraulics" 1936 Chevrolet Auto Mechanics - YouTube</td><td>97</td><td>3</td><td>0</td><td><1</td></tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div id="plg-notes" class="divcenter red-text">
+                       <b> Matching Content: 32%</b>
+                    </div> 
+                <div class="main-container-bottom coner-radius">
+                    <div id="document-text" class="divcenter">
+                        <h2>Master Document Text</h2>
+                        <!--<a href="" class="matched-text"> xyz </a> -->
+                        <p> Chapter-1Introduction<a href='http://www.slideshare.net/nagendrakushwaha007/chp-25' class="matched-text" title='http://www.slideshare.net/nagendrakushwaha007/chp-25' target='_blank'> :-"A Brake is a device by means of which artificial frictional resistance is applied to a moving machine member, in order to<br /> retard or stop the motion of a machine.</a> the brake either absorbs<a href='http://www.slideshare.net/nagendrakushwaha007/chp-25' class="matched-text" title='http://www.slideshare.net/nagendrakushwaha007/chp-25' target='_blank'> kinetic energy of the moving member or potential energy given up by objects being<br /> lowered by hoists, elevators, etc. the energy absorbed by brakes is dissipated in the form of heat."Capacity</a> of brake depends upon following factors<br /> Unit pressure between the braking surface- Co-efficient of friction- Velocity of brake drum- projected area of friction surface- Ability to dissipate<br /> heatFig:1.1(Internal expanding brake):- Brakes work on the principle of converting Kinetic energy into Heat energy. When a brake is applied the brake<br /> drum & brake shoes generates heat as a result of friction produced between them. This friction converts Kinetic Energy into Heat Energy so as<br /> bring the motion of the body to a halt.Fig:1.2(Principle of braking)1.3:--Wheel Cylinder-Backing Plate-Brake Shoes-Brake Liners-Self-Adjuster<br /> Hardware & Springs-Master CylinderFig:1.3(Components of Brakes)1.4:-One wheel<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> cylinder operates the brake on each wheel. Two pistons operate the<br /></a> wshoes,<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> one at each end of the wheel cylinder.</a><a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> Hydraulic pressure from the master cylinder acts on the piston cup, pushing the pistons toward the<br /> shoes, forcing them against the drum. When the driver releases the brakes, the brake shoe springs restore the shoes to their original (disengaged<br /> position.Fig:1.4(Wheel-cylinder)1.5:-The</a> backing plate provides<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> a base for the other components. It attaches to the axlesleeve and provides a</a> non<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'><br /> rotating rigid mounting surface for the wheel cylinder, brake shoes, and assorted hardware. Since all braking operations exert pressure on the<br /> backing plate, it must be strong and wear-resistant. Levers for emergency orÿparking</a> brakes,<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> and automatic brake-shoe adjuster were also added in<br /> recent years.Fig:1.5(Backing</a> plate)1.6 :-Brake shoes<a href='http://en.wikipedia.org/wiki/Brake_drum' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_drum' target='_blank'> are typically made of two pieces of sheet steel</a><a href='http://www.youtube.com/watch?v=Gnfqr3dKirU' class="matched-text" title='http://www.youtube.com/watch?v=Gnfqr3dKirU' target='_blank'> welded together. The friction material is either<br /> riveted to the lining table or attached with adhesive. The crescent-shaped piece is called the Web and contains holes and slots in different shapes<br /> for return springs, hold-down hardware, parking brake linkage and self-adjusting components. Fig:1.6(Brake shoes)1.7:-Liners</a> are component that<br /> actually provide friction surface between drum brake and in-house mounting. There are generally three type of liner materials used:1.)Symalit<br /> fluoroplastics(high-tech application)2.)Ceramic mixed with copper3.)Asbestos/asbestos with organic materialFig:1.7(a) (Liners)Table:1.7(b<br /> Comparison table)1.8:-These are the auxiliary component provided for the better gripping of brake shoe to the drum brake. They are basically springs<br /> connected to retracting mechanism which pushes the lower part of the shoe towards the brake drum.Fig:1.8(Self-adjuster)1.9:-Master cylinder is the<br /> component that is fixed just after brake pedal. It<a href='http://en.wikipedia.org/wiki/Brake_master_cylinder' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_master_cylinder' target='_blank'> is a control device that converts non-hydraulic pressure into</a><a href='http://en.wikipedia.org/wiki/Brake_master_cylinder' class="matched-text" title='http://en.wikipedia.org/wiki/Brake_master_cylinder' target='_blank'> hydraulic pressure. This device<br /> controls slave cylinders located at the other end of the hydraulic system.</a> Hydraulic fluid such as oil or a viscous fluid is filled in it. When pedal<br /> is pressed the fluid in the master cylinder runs through the pipes and stimulates the braking system. Fig: 1.9(Master cylinder)Chapter-2Problem<br /> Definition2.1Problem:-In economic segment of car, the rear wheels are provided with internal expanding brakes. These brakes are controlled by the<br /> master cylinder and are normally used during parking. A common situation arising in IEB is its jamming. This jamming of brake is due to two main<br /> reasons i.e. with application of more pressure or application of more pressure for long time on the lever/pedal, the linings gets attached (stick<br /> with the brake drum.<a href='https://www.fillingstation.com/articles/brakelockingproblems.htm' class="matched-text" title='https://www.fillingstation.com/articles/brakelockingproblems.htm' target='_blank'> There is a long list of reasons why the brakes will lock. We will attempt to cover the common problems. Probably the most common<br /> reason is moisture on the brake shoes or rust on the drums.When our cars</a><a href='https://www.fillingstation.com/articles/brakelockingproblems.htm' class="matched-text" title='https://www.fillingstation.com/articles/brakelockingproblems.htm' target='_blank'> are not driven for long periods, moisture can build up in the brake linings<br /> or rust will form on the drum surfaces. This can cause the brake shoes to grab or stick momentarily. The easiest solution to this problem is to "ride<br /> the brake pedal while driving, until the shoes have warmed up, eliminating the moisture. If moisture or rust was the problem, the sticking should go<br /> away as soon as the shoes are warm.NOTE: If you are planning to store the vehicle for a long period, it is not advisable to set the parking brake<br /> Moisture and rust can cause the brake lining to seize to the brake drum and cause a huge problem to get them to release.</a> 2.2:-Jamming of parking<br /> brakes in a common situation arising. The factor responsible for jamming of brake are moist/humid weather and engagement of parking brake in moist<br /> humid weather for a long time.When our cars<a href='https://www.fillingstation.com/articles/brakelockingproblems.htm' class="matched-text" title='https://www.fillingstation.com/articles/brakelockingproblems.htm' target='_blank'> are not driven for long periods, moisture can build up in the brake linings or rust will form on the drum<br /> surfaces. This can cause the brake shoes to grab or stick momentarily.Here,</a> the brake lining gets stuck with the drum of the wheel leaving the brake<br /> jammed; thus when the brakes is disengaged it still stays in engaged position. Another thing that is to be looked upon is the retracting force that<br /> is provided by the spring to the brake shoes. This is an important aspect to be looked upon because, if the spring is stiff enough then it will<br /> retract the brake shoes and adjust them to their previous working position; avoiding the jamming. A photo of jammed brake is shown below:Fig<br /> Jammed parking brake)Chapter-3Literature Review3.1 Introduction:-A literature review for the present work was carried out. Various researchesPapers<br /> and Web articles were studied relevant to the topic of work.3.2Summary of Papers Referred:-3.2.1:-Authors name: Jean Claude (1996)In general,<a href='http://www.freepatentsonline.com/5553691.html' class="matched-text" title='http://www.freepatentsonline.com/5553691.html' target='_blank'> this<br /> mechanical actuation device comprises a lever articulated at one of its ends to the web of one of the shoes and comprising, at an intermediate point<br /> close to this articulation, a slot provided so as to interact with the spacer of variable length and allow the shoes to be stressed away from each<br /> other under the action of a control cable fastened to the other end of the lever. Such</a> arrangements of hydraulic and mechanical actuators were used<br /> in early days. The objective of this present invention is to produce a drum brake having advantage of the two arrangements recalled actuators without<br /> exhibiting their demerits.Fig: 3.2.1(Conventional drum brake)3.2.2:-Authors name: Swanberg Robert R This invention<a href='http://www.google.com/patents/US2962324' class="matched-text" title='http://www.google.com/patents/US2962324' target='_blank'> relates to a floating drum brake<br /> particularly adapted for motor vehicle use, wherein the brake drum is floatingly mounted on the rim of the wheel assembly so that it may expand<br /> radially while transmitting the braking forces directly from the drum to the wheel rim and surrounding tire. Due to the floating mounting of the<br /> brake drum on the wheel assembly, deformation of the brake drum during braking does not present certain problems that are existent in wheel brakes<br /> wherein the drum is fixedly mounted on the wheel unit. Furthermore, this floating drum design results in elimination of all drum and shoe generated<br /> brake noises due to the fact that the drum backing plate is not required to carry the braking forces but merely serves as a positioning means for the<br /> drum. It is thought that the floating mounting of the brake drum on the wheel rim, which causes the braking forces to be transmitted directly from<br /> the drum to the wheel rim to the wheel tire rather than through the drum backing plate, the</a> lug bolts,<a href='http://www.google.com/patents/US2962324' class="matched-text" title='http://www.google.com/patents/US2962324' target='_blank'> the Wheel hub and thence through the wheel web<br /> to the rim and tire, eliminates or damps certain vibrations that are set up during braking that tend to cause disagreeable noise conditions. It is a<br /> primary object of this invention to provide a floating brake drum mounting on a wheel unit that lends itself to noise-free brake operation because<br /> the braking forces are transmitted directly from the drum through the wheel rim to the wheel tire. It is a further object of this invention to<br /> provide a floating brake drum mounting on a Wheel assembly that will compensate for brake drum distortion and brake noise during braking to thereby<br /> improve braking action.Fig:</a> 3.2.2(Floating type drum brake)3.2.3:-Authors name: John J. Bair, Ralph A. Lindgren This invention<a href='http://www.freepatentsonline.com/5390769.html' class="matched-text" title='http://www.freepatentsonline.com/5390769.html' target='_blank'> relates to a device to<br /> reduce brake squeal. More specifically, the present invention relates to a device to reduce brake squeal by introducing a dampening force between the<br /> wheel and brake drum using a plurality of spring clips to dampen vibration.</a><a href='http://www.freepatentsonline.com/5390769.html' class="matched-text" title='http://www.freepatentsonline.com/5390769.html' target='_blank'> Brake squeal noise occurs upon application of a vehicle brake when the<br /> structure of the brake drum resonates at its natural frequencies due to forces imparted by the brake pad frictionally engaging the inner surface of<br /> the brake drum. The</a><a href='http://www.freepatentsonline.com/5390769.html' class="matched-text" title='http://www.freepatentsonline.com/5390769.html' target='_blank'> present invention reduces the amplitude of vibration of the brake drum by providing frictional dampening at the brake drum by<br /> inserting a plurality of spring clip dampeners between the vehicle wheel rim and the brake drum adjacent to the squealer band. A separation force is<br /> introduced by the spring clip dampeners which react against the inside of the wheel rim and are forced down into or towards the outer surface of the<br /> brake drum where the two ends of the spring clip dampener rub against the outside surface of the brake drum thereby providing for frictional<br /> dampening.</a> Fig: 3.2.3(Drum brake with spring-clip)3.2.4:-Authors name: Donald D. JohannesenThis invention relates drum brake that is operated by<br /> means of electric motor. Electrically operated drum brake consist of an electric motor assembly placed opposite to the brake shoes. The electric<br /> motor replaces both the wheel cylinder and the parking brake and strut and lever. The motor drives a planetary gear assembly which engages and<br /> disengages the brake shoes. This braking system is used for main as well as parking brake. When the electric motor starts to produce a response i.e<br /> starts to rotate small screw also starts to rotate as both are connected to each other. Further this link is connected to planetary gears<br /> arrangements which are oppositely placed on each of the brake shoe. With the motion of the motor the screw gear as well as the planetary gear moves<br /> in outward direction producing friction between drum and the brake assembly, thus applying brake.Fig: 3.2.4(Electrically operated drum brake) Chapter<br /> Optimization of Internal Expanding Brake4.1 Introduction:-The optimization of internal expanding brake, in this project is carried out by using<br /> linear travel actuator instead of wheel cylinder. In conventional design of internal expanding brake hydraulically powered mechanical linkages were<br /> used, because of this the brake gets jammed due to moist weather. By using electrical actuator the problem of jamming can be eliminated as it does<br /> not have any return spring that can help the brake to jam. With using such actuators a more sophisticated and non-jamming parking brake can be made<br /> available for economic segment of cars.4.2:-Following factor affects the jamming of brake:A.)WeatherB.)Wear of internal side of brake assemblyC.)Time<br /> duration for which pedal/lever is pressedD.)Rust layer developed on return springE.)Rusting of wheel-cylinder (if not hydraulically powered)A picture<br /> of jammed brake is shown below;Fig: 4.2(Return springs in stretched condition)4.3:-To determine actuating force:A schematic sketch of a single shoe<br /> located inside a rotating drum with relevant notations, is shown in the figure below. In this analysis, the pressure at any point is assumed to be<br /> proportional to the vertical distance from the hinge pin, the vertical distance from the hinge pin, which in this case is proportional to sine of the<br /> angle and thus,  pdsin sin ? ?? ? Since the distance d is constant, the normal pressure at any point is just proportional to<br /> of proportionality as K;Thus, p</w:t></w:r><w:r w:rsidR="005E3FCA"><w=Ksin? It the maximum allowable pressure for the lining material is  then the<br /> constant K can be defined as K==p=sinThe normal force dN is computed as the product of pressure and area and the frictional force as the product of<br /> normal force and frictional coefficient i.e. f dN. By integrating these over the shoe length in terms of its angle the braking torque(T) and other<br /> brake parameters are computed.  To determine the actuating force F, the moment equilibrium about the pivot point is applied.  For this we<br /> determine the moment of the normal force MN and  moment of the frictional force about the pivot point.  Moment of the normal force is equal<br /> normal force times its moment arm about the pivot point. From the figure it is clear that the moment arm in this case is equal to   d sin é<br /> is the distance between the drum center and pivot center.On similar lines the moment of friction force is computed </w:t></w:r><w:r w:rsidR<br /> w:t></w:r><m:oMath><m:The actuating force F is determined by the summation of the moments of normal and frictional forces about the hinge pin and<br /> equating it to zero.  Summing the moment about point O givesF=where,   and  are the moment of the normal and frictional<br /> the shoe pivot point. The sign depends upon the direction of drum rotation,  (- sign for self energizing and + sign for non<br /> Where the lower sigh is for a self energizing shoe  and the upper one for a self de-energizing shoe.To determine Reaction force:The reaction forces<br /> are determined by applying force summation and equilibrium </w </w:t>< ==+ =The equations can be simplified and put as    </w:t></w:r><w: </w:t>  </w<br /> t></w:r>< </w:t></w: A= </w:t></w </w:t></w:r B=</w <To determine Braking Torque:The braking torque T on the drum by the shoe is of the frictional<br /> forces f.dN times The radius of the drum and resulting equation is,T=  </w:t></w =</ </w:t></w:T=To determine Heat dissipation:1.) Here, the heat<br /> generated or the heat absorbed is given by; =   (in J/s or watts)where,  = Co=effi. of friction<a href='http://www.slideshare.net/nagendrakushwaha007/chp-25' class="matched-text" title='http://www.slideshare.net/nagendrakushwaha007/chp-25' target='_blank'> </w:t>  = Normal force acting at<br /> in</a> Newton's </w:t></w p = Normal pressure in N/ </w: A = Projected area in  </w: V = Peripheral velocity in m/s2.) Heat dissipated is given by; </w:t<br /> w = C()where, C = Heat dissipation factor in W/ </w:t></ <<a href='http://www.slideshare.net/nagendrakushwaha007/chp-25' class="matched-text" title='http://www.slideshare.net/nagendrakushwaha007/chp-25' target='_blank'> = Temp. difference between the exposed radiating surface</a> and the  sur</roundings<br /> Area of radiating surface in 4.4:-Below shown figures shows some of the possible ways through which we can solve the problem of jamming internal<br /> expanding brakes and also upgrade it and make it more sophisticated. For this, instead of wheel cylinder (i.e. used in conventional IEB) we'll use<br /> voice coil actuator with same braking force as of the conventional design. Voice coil actuators are capable of moving an inertial load at extremely<br /> high accelerations (>20g) and relocating it to an accuracy of better than  mm over a limited travel. Motion can be in a straight line<br /> actuators) or in an arc (swing-arm actuators). Linear voice coil actuators come in two forms-moving coil and moving magnet types. Unlike solenoids<br /> in voice coils a reasonably uniform With this technique we improvise the beneficial part of the conventional design but ignore its disadvantage.Fig<br /> Construction of voice coil actuator)Possible arrangement of actuator in IEB:Fig:A(1)Fig:A(2)Fig:A(3)Fig:A(4)Calculations on above shown figures:-Fig<br /> Construction of solenoid) Solenoids consist of a ?xed core and a movable plunger that complete a magnetic circuit broken by a small gap, as shown in<br /> figure. When the coil is energized by passing a current through it, the core-plunger combination forms an electromagnet, and the plunger is drawn<br /> downward to close the gap. It is assumed that all of the magnetic ?ux is constrained within the core and within the gap and that all of the<br /> resistance to magnetic ?ux ?ow (magnetic reluctance) occurs within the gap. The ?eld is assumed to be uniform in the gap and zero everywhere else and<br /> also that the core material does not saturate. The magnetomotive force (mmf) set up by the coil is de?ned by the number of turns on the coil, N, and<br /> the current I (A), ?owing through it.mmf = NI = H údl </w:t></w:r></w:p><w:p w:rsidR="004where, H is the coercive force on the ?ux path, which is<br /> nonzero only in the gap. Because the ?eld is considered to be uniform and the gap length  (m) is constant, then equation (3.7) can be simpli?ed<br /> mmf = NI = HTherefore the coercive force will be ;H = The energy  (J) stored in the volume of space occupied by a magnetic ?eld<br /> is the ?ux density and V  is the volume.Substituting for equation (3.9) and solving for a speci?c cross sectional area  ()The mechanical energy<br /> determined by the product of the force and the distance travelled = Therefore, the force can be described by the change in energy per unit change<br /> the length of the gapF=and this must be equal to the magnetic energy given up. HenceF==From this result it can be seen that as the gap is reduced<br /> the force increases proportionally with the result that the relationship between the force and the solenoid displacement is very nonlinear.Fig<br /> Graph of FORCE v/s STROKE)Chapter-5Conclusion:-As above discussed in IEB jamming occurs due wear and tear of mechanical linkages. Thus using a<br /> technique in which there are less linkages we can avoid the problem of jamming in IEB. Using voice coil actuators greater acceleration(>20G) can<br /> generated that is eligible of relocating the plunger up to an accuracy of mm. By using this mechanism there is no need of using return spring which<br /> is a factor that causes jamming in IEB. Moreover this design produces more acceleration and retracting force in comparison of conventional design<br /> Finally, targeting the cost factor for economic segment of cars, this proposed design of using voice-coil actuator instead of wheel-cylinder will<br /> target the cost as well as help the IEB(parking brake) to be more accurate ,effective, efficient and more sophisticated.Reference:-[1] en.wikipedia<br /> org/brakes[2] www.military.com[3] www.reddingwheelandbrake.com[4] www.cdxetext.com[5] www.daewooclub.co.uk[6] www.scooterworks.com[7] en.wikipedia<br /> org/liners[8] www.brakeandfrontend.com[9] www.rrsilvershadow.com[10] www.allpar.com [11] https://www.google.com/patents/US5553691Mechanically<br /> actuated drum brake </w:t></JC Mery, P Pressaco -ÿUS Patent 5,553,691, 1996 - GoogleÿPatents </w:t>Publication number, 08133101 [12] https://www<br /> google.com/patents/US2962324Floating brake drum </w:t>R, R. Swanberg - US Patent 2,962,324, 1960 - GoogleÿPatents </w:t></Nov. 29, 1960ÿ<br /> https://www.google.com/patents/US5390769Drum brake spring clip with squealer<a href='http://www.google.com/patents/US2962324' class="matched-text" title='http://www.google.com/patents/US2962324' target='_blank'> band retainer </w:t><JJ Bair, RA Lindgren Jr -ÿUS</a> Patent<br /> GoogleÿPatents </w:t><Publication number, 08130815[14] https://www.google.com/patents/US4928543Electrically operated drum brake </w:t><DD Johannesen<br /> AG Taig -ÿUS Patent 4,928,543, 1990 - GoogleÿPatents </w:t><Publication number, 07347134, 347134[15]Paper from IIT Madras-P.K Gopinath[16]Chapter on<br /> ActuatorAppendix:-CD Contain:-PDF File of ReportWord File of ReportPPT File of Report   <br /></p>
+                        
+                        
+                    </div>
+                    
+                </div> 
+            </div>
+
+            <div id="footer">
+                <div id="footermenu">
+                    <div id="col1">
+                        <ul>
+                            <li>
+                                <a title="Plagiarism detection software" href="http://www.scanmyessay.com/plagiarism-detection-software.php">Plagiarism Detection Software</a>
+                            </li>
+                            <li>
+                                <a title=" Plagiarism Test" href="http://www.scanmyessay.com/plagiarism-test.php">Plagiarism Test </a>
+                            </li>
+                            <li>
+                                <a title="Plagiarism Detector" href="http://www.scanmyessay.com/plagiarism-detector.php">Plagiarism Detector</a>
+                            </li>
+                            <li>
+                                <a title="Detect Plagiarism" href="http://www.scanmyessay.com/detect-plagiarism.php">Detect Plagiarism</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="col2">
+                        <ul>
+                            <li>
+                                <a title="Essay Checker" href="http://www.scanmyessay.com/essay-checker.php">Essay Checker</a> 
+                                | <a href="http://www.scanmyessay.com/free-check-for-plagiarism.php">Free Check for Plagiarism</a>
+                            </li>
+                            <li>
+                                <a title="Free lesson plans" href="http://www.scanmyessay.com/lesson-plans.php">Lesson plans</a>
+                            </li>
+                            <li>
+                                <a title="Avoid plagiarism" href="http://www.scanmyessay.com/avoid-plagiarism.php">Avoid Plagiarism</a>
+                            </li>
+                            <li>
+                                <a title="Plagiarism Check" href="http://www.scanmyessay.com/plagiarism-check.php">Plagiarism Check</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="col3">
+                        <ul>
+                            <li>
+                                <a title="Plagiarism prevention software" href="http://www.scanmyessay.com/plagiarism-prevention.php">Plagiarism Prevention</a>
+                            </li>
+                            <li>
+                                <a title="Turnitin" href="http://www.scanmyessay.com/turnitin.php">Turnitin </a> | <a href="http://www.scanmyessay.com/check-for-plagiarism-free.php">Check for Plagiarism Free</a>
+                            </li>
+                            <li>
+                                <a title="Editing services" href="http://www.scanmyessay.com/essay-marking/index.php">Editing Services</a>
+                            </li>
+                            <li>
+                                <a title="Free Scanner Software" href="http://www.essaycoursework.com/coursework-writing.php">Coursework writing</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="footerbottom">
+                    <p>
+                        Copyright © 2012 All Rights Reserved. 
+                        <a href="http://www.scanmyessay.com">Scan My Essay</a> 
+                        - Free Plagiarism Scanner, Checker and Detection Tool.  
+                        Viper and ScanMyEssay.com are trading names of Angel Business Limited, 
+                        a Company registered in England and Wales with Company Registration No: 07344835, 
+                        The Loft, 3 Plumptre Street, The Lace Market, Nottingham NG1 1JL | 
+                        <a href="http://www.scanmyessay.com/viper-keygen-crack.php">Warning - Viper Keygen / Viper Crack</a>
+                    </p>
+                    <p>
+                        Please note that by using ScanMyEssay.com, VIPER and any other  software or resources on the ScanMyEssay Website, you are signifying  your agreement
+                        to our <a href="http://www.scanmyessay.com/terms.php">terms and conditions</a>, and our <a href="http://www.scanmyessay.com/privacy-policy.php">privacy policy</a> | <a href="http://www.scanmyessay.com/sitemap.xml">XML sitemap</a> 
+                        | <a href="http://www.scanmyessay.com/ror.xml">ROR</a> 
+                        | <a href="http://www.scanmyessay.com/urllist.txt">TXT</a>
+                        | <a href="http://www.scanmyessay.com/sitemap.html">HTML</a>
+                        | <a href="http://www.scanmyessay.com/sitemap.php">PHP</a> | <a href="http://cn.scanmyessay.com">剽窃检查</a>
+                        | <a href="http://es.scanmyessay.com">Verificador de plagio gratuito</a> 
+                        | <a href="http://fr.scanmyessay.com/">Détecteur de plagiat gratuit</a> 
+                        | <a href="http://in.scanmyessay.com/">Viper साहित्यिक चोरी जांचने का एक निशुल्क साधन...</a>
+
+                    </p>
+                </div> 
+            </div>
+
+        </div>
+         
+    </body>
+</html>
