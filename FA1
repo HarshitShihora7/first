@@ -1,0 +1,3003 @@
+names = ['Amir', 'Barry', 'Chales', 'Dao']
+
+print(names[-1][-1])
+
+
+
+
+
+
+
+A
+
+r
+
+Amir
+
+Dao
+
+o
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+
+names2 = names1
+
+names3 = names1[:]
+
+
+
+
+names2[0] = 'Alice'
+
+names3[1] = 'Bob'
+
+
+
+
+sum = 0
+
+for ls in (names1, names2, names3):
+
+    if ls[0] == 'Alice':
+
+        sum += 1
+
+    if ls[1] == 'Bob':
+
+        sum += 10
+
+
+
+
+print(sum)
+
+
+
+
+11
+
+12
+
+21
+
+22
+
+33
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+
+
+
+
+if 'amir' in names1:
+
+    print(1)
+
+else:
+
+    print(2)
+
+
+
+
+1
+
+2
+
+error
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+
+names2 = [name.lower() for name in names1]
+
+
+
+
+print names2[2][0]
+
+
+
+
+
+
+
+i
+
+a
+
+c 
+
+C
+
+An exception is thrown
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+numbers = [1, 2, 3, 4]
+
+
+
+
+numbers.append([5,6,7,8])
+
+
+
+
+print(len(numbers))
+
+
+
+
+4
+
+5
+
+8
+
+12
+
+An exception is thrown
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+Which of the following data structures can be used with the "in" operator 
+
+to check if an item is in the data structure?
+
+
+
+
+list
+
+set
+
+dictionary
+
+All of the above 
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+list1 = [1, 2, 3, 4]
+
+list2 = [5, 6, 7, 8]
+
+
+
+
+print(len(list1 + list2))
+
+
+
+
+
+
+
+
+
+
+2
+
+4
+
+5
+
+8
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+def addItem(listParam):
+
+    listParam += 1
+
+mylist = [1, 2, 3, 4]
+
+addItem(mylist)
+
+print(len(mylist))
+
+
+
+
+
+
+
+1
+
+4
+
+5
+
+8
+
+An exception is thrown
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+my_tuple = (1, 2, 3, 4)
+
+my_tuple.append( (5, 6, 7) )
+
+print len(my_tuple)
+
+
+
+
+1
+
+2
+
+5
+
+7 
+
+An exception is thrown
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+a = 1
+
+b = 2
+
+a,b = b,a
+
+
+
+
+print(a,b)
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+def dostuff(param1, *param2):
+
+   print(type(param2))
+
+
+
+
+dostuff('apples', 'bananas', 'cherry', 'dates')
+
+
+
+
+str
+
+int
+
+tuple
+
+list
+
+dict
+
+
+
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+def dostuff(param1, **param2):
+
+   print type(param2)
+
+
+
+
+
+
+
+dostuff('capitals', Arizona='Phoenix',
+
+California='Sacramento', Texas='Austin')
+
+
+
+
+
+
+
+
+
+
+
+
+
+in
+
+str
+
+tuple
+
+list
+
+dict
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+counter = 1 
+
+
+
+
+def doLotsOfStuff():
+
+    
+
+    for i in (1, 2, 3): 
+
+        counter += 1
+
+
+
+
+doLotsOfStuff()
+
+
+
+
+print(counter)
+
+
+
+
+
+
+
+
+
+
+1
+
+3
+
+4
+
+7
+
+none of the above
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+counter = 1 
+
+
+
+
+def doLotsOfStuff():
+
+    
+
+    global counter
+
+
+
+
+    for i in (1, 2, 3): 
+
+        counter += 1
+
+
+
+
+doLotsOfStuff()
+
+
+
+
+print(counter)
+
+
+
+
+
+
+
+
+
+
+1
+
+3
+
+4
+
+7
+
+none of the above
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+dict  = {"user","bill", "password":"abc","hillary"}
+
+
+
+
+print(dict['password'])
+
+
+
+
+user
+
+bill
+
+password
+
+hillary
+
+Nothing.
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+name = "snow storm"
+
+
+
+
+name[5] = 'X'
+
+
+
+
+print(name)
+
+
+
+
+
+
+
+
+
+
+snow storm
+
+snowXstorm
+
+snow Xtorm
+
+ERROR, this code will not run
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+
+
+
+for i in  range(2):
+
+    print(i)
+
+
+
+
+for i in range(4,6):
+
+    print(i)
+
+
+
+
+
+
+
+
+
+
+2, 4, 6
+
+0, 1, 2, 4, 5, 6
+
+0, 1, 4, 5
+
+0, 1, 4, 5, 6, 7, 8, 9
+
+1, 2, 4, 5, 6
+
+
+
+
+
+
+
+===========================================
+
+
+
+
+x = "foo "
+
+y = 2
+
+print(x + y)
+
+
+
+
+
+
+
+foo
+
+foo foo
+
+foo 2
+
+2
+
+An exception is thrown
+
+ 
+
+====================================================================
+
+
+--------------------------------------------------------------------------------
+
+
+1. List of strings are given in the format of NAME:PHONE NUMBER. We should print names whose phone number is in the format such that 
+
+   sum of first five digits is equal to next sum of five digits.
+
+   list=[a:1234512345,b:1234567890,c:5432154321,d:9874563210,e:9874598745]
+
+   The output should be: a,c,e which satisfies the condition.
+
+
+
+
+2. list=['ants','bulk','some','pile','shakti'] , keyword=akpi
+
+     return the position of the 'a' from 'ants', 'k' from 'bulk' and similarly for others into the output list.
+
+     output=[1,4,1,6]
+
+
+
+
+3. list=['ram:31','shyam:56','karan:38','sandy:75','shruti:30']
+
+   return the names into output list whose age is more than 35 years.
+
+
+
+
+4. string='IND-USA-PAK/AUS-FSD-IND/FSD-IND-GVF'
+
+    return the positions of IND into output list where ever it is present in the string without counting '-' or '/'.
+
+    Example:  IND=[1,6,8]
+
+              USA=[2]
+
+              PAK=[3]
+
+              FSD=[5,7]
+
+
+
+
+5. list=[1,2,3,4,5,6,7,9,15]
+
+    return the ceil of average value with out considering the minimum value and maximum value.
+
+    Example:  min value in list=1
+
+              max value in list=15
+
+              avg=36/7=ceil(5.14)=6
+
+
+
+
+6.list=[12,5,36,48,39,6,8,7,9,45,50]
+
+   Sum all the values in the list based on the following condition.
+
+   The values in the list between 5 and 8 including both 5,8 should not be added to the sum.
+
+   output: Sum=12+7+9+45+50=123
+
+
+
+
+*******************************************************************************************************************************************************************
+
+DS
+
+*******************************************************************************************************************************************************************
+
+1.stack
+
+  stack1=[1,2,3,4,5]--->input stack
+
+  value--->input should be either 0 or 1
+
+  stack2=[]--->output stack(input stack size)
+
+  if the value is 0 then output stack should be cube of input stack elements[1,8,27,64,125]
+
+  if the value is 1 then output stack should be cube of reverse stack elsements[125,64,27,8,1]
+
+
+
+
+2.stack
+
+  stack1=[+,1,19,*,9,0,+,8,2]
+
+  stack2=[]--->output stack(3)
+
+  output is [(1+19),(9*0),(8+2)]===[20,0,10]
+
+
+
+
+3.Queue
+
+  queue1=[2,5,8,9,6,4]
+
+  queue2-->output
+
+  output-->[10,5,40,9,30,20]
+
+  if even then multiply with 5
+
+
+
+
+Maximum questions will be of this model
+
+ 
+
+==========================================================
+
+How many times will the following code print "Welcome to Python"?
+
+
+
+
+
+
+count = 0
+
+while count < 10:
+
+    print("Welcome to Python")
+
+    count += 1
+
+ A. 8
+
+ B. 9
+
+ C. 10
+
+ D. 11
+
+ E. 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x = 0
+
+while x < 4:
+
+    x = x + 1
+
+
+
+
+print("x is", x)
+
+ A. x is 0
+
+ B. x is 1
+
+ C. x is 2
+
+ D. x is 3
+
+ E. x is 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How many times will the following code print "Welcome to Python"?
+
+
+
+
+count = 0
+
+while count < 10:
+
+    print("Welcome to Python")
+
+    
+
+ A. 8
+
+ B. 9
+
+ C. 10
+
+ D. 11
+
+ E. infinite number of times
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What will be displayed when the following code is executed?
+
+
+
+
+    number = 6
+
+    while number > 0:
+
+        number -= 3
+
+        print(number, end = ' ')
+
+ A. 6 3 0
+
+ B. 6 3 
+
+ C. 3 0
+
+ D. 3 0 -3
+
+ E. 0 -3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Analyze the following statement:
+
+
+
+
+sum = 0
+
+for d in range(0, 10, 0.1):
+
+    sum += sum + d
+
+ A. The program has a syntax error because the range function cannot have three arguments.
+
+ B. The program has a syntax error because the arguments in the range must be integers.
+
+ C. The program runs in an infinite loop.
+
+ D. The program runs fine.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Which of the following loops prints "Welcome to Python" 10 times?
+
+
+
+
+A:
+
+for count in range(1, 10):
+
+    print("Welcome to Python")
+
+
+
+
+B:
+
+for count in range(0, 10):
+
+    print("Welcome to Python")
+
+
+
+
+C:
+
+for count in range(1, 11):
+
+  print("Welcome to Python")
+
+
+
+
+D:
+
+for count in range(1, 12):
+
+  print("Welcome to Python")
+
+ A. BD
+
+ B. ABC
+
+ C. AC
+
+ D. BC
+
+ E. AB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The function range(5) return a sequence ______________.
+
+ A. 1, 2, 3, 4, 5
+
+ B. 0, 1, 2, 3, 4, 5
+
+ C. 1, 2, 3, 4
+
+ D. 0, 1, 2, 3, 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Which of the following function returns a sequence 0, 1, 2, 3?
+
+ A. range(0, 3)
+
+ B. range(0, 4)
+
+ C. range(3)
+
+ D. range(4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Which of the following function is incorrect?
+
+ A. range(0, 3.5)
+
+ B. range(10, 4, -1)
+
+ C. range(1, 3, 1)
+
+ D. range(2.5, 4.5)
+
+ E. range(1, 2.5, 4.5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Which of the following loops correctly computes 1/2 + 2/3 + 3/4 + ... + 99/100?
+
+
+
+
+A:
+
+sum = 0
+
+for i in range(1, 99):
+
+    sum += i / (i + 1)
+
+
+
+
+print("Sum is", sum)
+
+
+
+
+B:
+
+sum = 0
+
+for i in range(1, 100):
+
+    sum += i / (i + 1)
+
+
+
+
+print("Sum is", sum)
+
+
+
+
+C:
+
+sum = 0
+
+for i in range(1.0, 99.0):
+
+    sum += i / (i + 1)
+
+
+
+
+print("Sum is", sum)
+
+
+
+
+D:
+
+sum = 0
+
+for i in range(1.0, 100.0):
+
+    sum += i / (i + 1)
+
+
+
+
+print("Sum is", sum)
+
+ A. BCD
+
+ B. ABCD
+
+ C. B
+
+ D. CDE
+
+ E. CD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The following loop displays _______________.
+
+
+
+
+for i in range(1, 11):
+
+    print(i, end = " ")
+
+ A. 1 2 3 4 5 6 7 8 9
+
+ B. 1 2 3 4 5 6 7 8 9 10
+
+ C. 1 2 3 4 5 
+
+ D. 1 3 5 7 9
+
+ E. 2 4 6 8 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the output for y?
+
+
+
+
+y = 0
+
+for i in range(0, 10):
+
+    y += i
+
+
+
+
+print(y)
+
+ A. 10
+
+ B. 11
+
+ C. 12
+
+ D. 13
+
+ E. 45
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the output for y?
+
+
+
+
+y = 0
+
+for i in range(0, 10, 2):
+
+    y += i
+
+
+
+
+print(y)
+
+ A. 9
+
+ B. 10
+
+ C. 11
+
+ D. 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the output for y?
+
+
+
+
+y = 0
+
+for i in range(10, 1, -2):
+
+    y += i
+
+
+
+
+print(y)
+
+ A. 10
+
+ B. 40
+
+ C. 30
+
+ D. 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How many times is the print statement executed?
+
+
+
+
+for i in range(10): 
+
+    for j in range(10):
+
+        print(i * j)
+
+ A. 100
+
+ B. 20
+
+ C. 10
+
+ D. 45
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How many times is the print statement executed?
+
+
+
+
+for i in range(10): 
+
+    for j in range(i):
+
+        print(i * j)
+
+ A. 100
+
+ B. 20
+
+ C. 10
+
+ D. 45
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Will the following program terminate?
+
+
+
+
+balance = 10
+
+
+
+
+while True:
+
+    if balance < 9: break
+
+
+
+
+
+
+
+    balance = balance - 9
+
+ A. Yes
+
+ B. No
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Will the following program terminate?
+
+balance = 10
+
+
+
+
+while True:
+
+    if balance < 9: continue
+
+    balance = balance - 9
+
+
+
+
+ A. Yes
+
+ B. No
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is sum after the following loop terminates?
+
+
+
+
+sum = 0
+
+item = 0
+
+while item < 5:
+
+    item += 1
+
+    sum += item
+
+    if sum > 4: break
+
+
+
+
+print(sum)
+
+ A. 5
+
+ B. 6
+
+ C. 7
+
+ D. 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is sum after the following loop terminates?
+
+
+
+
+sum = 0
+
+item = 0
+
+while item < 5:
+
+    item += 1
+
+    sum += item
+
+    if sum >= 4: continue
+
+
+
+
+print(sum)
+
+ A. 15
+
+ B. 16
+
+ C. 17
+
+ D. 18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What will be displayed by after the following loop terminates?
+
+
+
+
+number = 25
+
+isPrime = True
+
+i = 2 
+
+while i < number and isPrime:
+
+    if number % i == 0:
+
+        isPrime = False
+
+
+
+
+    i += 1
+
+
+
+
+print("i is", i, "isPrime is", isPrime)
+
+ A. i is 5 isPrime is True
+
+ B. i is 5 isPrime is False
+
+ C. i is 6 isPrime is True
+
+ D. i is 6 isPrime is False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What will be displayed by after the following loop terminates?
+
+
+
+
+number = 25
+
+isPrime = True
+
+for i in range(2, number):
+
+    if number % i == 0:
+
+        isPrime = False
+
+        break
+
+
+
+
+print("i is", i, "isPrime is", isPrime)
+
+ A. i is 5 isPrime is True
+
+ B. i is 5 isPrime is False
+
+ C. i is 6 isPrime is True
+
+ D. i is 6 isPrime is False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the number of iterations in the following loop:
+
+
+
+
+  for i in range(1, n):
+
+      # iteration
+
+ A. 2*n
+
+ B. n
+
+ C. n - 1
+
+ D. n + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the number of iterations in the following loop:
+
+
+
+
+  for i in range(1, n + 1):
+
+      # iteration
+
+ A. 2*n
+
+ B. n
+
+ C. n - 1
+
+ D. n + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Suppose the input for number is 9. What will be displayed by the following program?
+
+
+
+
+number = 9
+
+isPrime = True
+
+for i in range(2, number):
+
+    if number % i == 0:
+
+        isPrime = False
+
+
+
+
+    print("i is", i)
+
+
+
+
+    if isPrime:
+
+        print(number, "is prime")
+
+        break
+
+    else:
+
+        print(number, "is not prime")
+
+ A. i is 3 followed by 9 is prime
+
+ B. i is 3 followed by 9 is not prime
+
+ C. i is 2 followed by 9 is prime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def display():
+
+if()
+
+return True
+
+else:
+
+retrun False
